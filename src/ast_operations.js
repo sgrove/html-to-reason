@@ -89,7 +89,7 @@ const convertAttributeName = (node) => {
           ? reasonHelpers.mangleNameAsAttribute(base)
           : base;
 
-      return [newKey, safeValue.trim()];
+      return [newKey, value.trim()];
     });
 
     const attrs = Object.fromEntries(entries);
