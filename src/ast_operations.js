@@ -6,6 +6,10 @@ const reasonHelpers = require("./ReasonHelpers.bs.js");
 const entities = new Entities();
 
 function replaceStyle(styleString) {
+  if (styleString.trim() === "") {
+    return "ReactDOMStyle.make()";
+  }
+
   const styles = entities
     .decode(styleString)
     .trim()
@@ -41,7 +45,7 @@ function replaceStyle(styleString) {
 
   const labels = styles.length > 0 ? styles.join(", ") + ", " : "";
 
-  return "ReactDOMRe.Style.make(" + labels + " ())";
+  return "ReactDOMStyle.make(" + labels + " ())";
 }
 
 const convertTag = (node) => {
@@ -56,6 +60,10 @@ const convertTag = (node) => {
 
 const convertStyle = (node) => {
   if (node.attrs && node.attrs.style) {
+    if (node.attrs.style.trim() === "") {
+      return { node, attrs: node.attrs.filter(([key]) => key !== "style") };
+    }
+
     return {
       ...node,
       attrs: { ...node.attrs, style: replaceStyle(node.attrs.style) },
@@ -81,7 +89,7 @@ const convertAttributeName = (node) => {
           ? reasonHelpers.mangleNameAsAttribute(base)
           : base;
 
-      return [newKey, value.trim()];
+      return [newKey, safeValue.trim()];
     });
 
     const attrs = Object.fromEntries(entries);
@@ -107,7 +115,7 @@ const prepareRawTextNode = (node) => {
 
   const decoded = entities.decode(cleaned);
 
-  return `{j|${decoded}|j}->string`;
+  return `{j\`${decoded}\`->string}`;
 };
 
 const isCommentNode = (node) => {
@@ -115,7 +123,9 @@ const isCommentNode = (node) => {
 };
 
 const extractCommentFromCommentNode = (node) => {
-  const temp = node.match(/<!--(.*)-->/)[1].trim();
+  console.log("Extracting comment from node! ", node);
+  window.myNode = node;
+  const temp = node.match(/<!--([^]*)-->/)[1]?.trim();
   const quoteCount = temp.match(/"/g);
 
   // Refmt will bizarrely throw a syntax error if a comment contains an unterminated string literal

@@ -398,7 +398,7 @@ const REASON_REACT_DOM_ATTRIBUTE_COERCIONS = {
   strokeMiterlimit: "string",
   strokeOpacity: "string",
   strokeWidth: "string",
-  style: "ReactDOMRe.style",
+  style: "ReactDOMStyle.t",
   summary: "string",
   suppressContentEditableWarning: "bool",
   surfaceScale: "string",
@@ -952,7 +952,7 @@ const getAttributeCanonicalName = (name) => {
 
 const escapeQuotes = (string) => {
   if (typeof string === "string") {
-    return string.replace(/"/g, '\\"');
+    return string.replace(/\\"/gm, '\\\\"').replace(/([^\\])"/g, '$1\\"');
   }
 
   return string;
@@ -979,11 +979,9 @@ function camelCase(property) {
 const attributeCoercions = {
   string: (name, string) => `${name}="${escapeQuotes(string)}"`,
   bool: (name, value) => {
-    console.log(name, value);
     let coerced = value;
     if (typeof value == "string") {
       coerced = camelCase(coerced);
-      console.log(name, coerced, value, typeof coerced);
       coerced = value.toUpperCase() === "TRUE" || value === "";
     }
     return `${name}=${coerced}`;
@@ -1026,7 +1024,11 @@ const attributeCoercions = {
 
     return `${name}=${coerced}`;
   },
-  "ReactDOMRe.style": (name, value) => {
+  "ReactDOMStyle.t": (name, value) => {
+    if (value === "") {
+      console.warn("Found empty style for: ", name, value);
+      return `${name}={ReactDOMStyle.make()}`;
+    }
     return `${name}={${value}}`;
   },
   identityCoercer: (name, value) => `${name}="${escapeQuotes(value)}"`,
