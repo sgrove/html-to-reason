@@ -66,7 +66,7 @@ function Index$default(Props) {
                           className: "border-b-2 border-red-400 px-3 py-4 sm:px-6 bg-red-200 text-red-600 flex justify-between"
                         }, React.createElement("h1", {
                               className: "text-lg font-bold"
-                            }, "Copy Reason"), React.createElement("button", {
+                            }, "Copy Rescript"), React.createElement("button", {
                               onClick: (function (param) {
                                   Copy_textJs("copyMe");
                                   

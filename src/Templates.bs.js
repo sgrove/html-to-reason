@@ -9,7 +9,7 @@ var header = React.createElement("div", {
           className: "flex-1 min-w-0"
         }, React.createElement("h2", {
               className: "text-2xl font-bold leading-7 text-gray-700 sm:text-3xl sm:leading-9 sm:truncate"
-            }, "HTML to Reason")), React.createElement("div", {
+            }, "HTML to Rescript")), React.createElement("div", {
           className: "text-sm text-gray-400"
         }, "Brought to you by  ", React.createElement("a", {
               className: "text-blue-400",
@@ -27,7 +27,7 @@ var footer = React.createElement("div", {
           className: "grid grid-cols-2 gap-4"
         }, React.createElement("div", undefined, React.createElement("h2", {
                   className: "font-semibold text-lg mb-2 text-gray-700"
-                }, "What this does"), React.createElement("ul", undefined, React.createElement("li", undefined, "Fixes all reserved keywords, like 'class'=>'className='"), React.createElement("li", undefined, "Converts attributes to CamelCase"), React.createElement("li", undefined, "Decodes entities in text, then wraps it in quotes and ->string"), React.createElement("li", undefined, "Converts HTML comments to Reason comments"), React.createElement("li", undefined, "Closes self-closing attributes"), React.createElement("li", undefined, "Converts 'style' attribute into ", React.createElement("code", undefined, "ReactDOMRe.make"), " calls"))), React.createElement("div", undefined, React.createElement("h2", {
+                }, "What this does"), React.createElement("ul", undefined, React.createElement("li", undefined, "Fixes all reserved keywords, like 'class'=>'className='"), React.createElement("li", undefined, "Converts attributes to CamelCase"), React.createElement("li", undefined, "Decodes entities in text, then wraps it in quotes and ->string"), React.createElement("li", undefined, "Converts HTML comments to Rescript comments"), React.createElement("li", undefined, "Closes self-closing attributes"), React.createElement("li", undefined, "Converts 'style' attribute into ", React.createElement("code", undefined, "ReactDOMRe.make"), " calls"))), React.createElement("div", undefined, React.createElement("h2", {
                   className: "font-semibold text-lg mb-2 text-gray-700"
                 }, "Made Possible By"), React.createElement("ul", undefined, React.createElement("li", {
                       className: "underline"
@@ -52,9 +52,9 @@ var footer = React.createElement("div", {
                         }, "Netlify")), React.createElement("li", {
                       className: "underline"
                     }, React.createElement("a", {
-                          href: "https://reasonml.github.io/reason-react/",
+                          href: "https://rescript-lang.org",
                           target: "_blank"
-                        }, "Reason React")), React.createElement("li", {
+                        }, "Rescript")), React.createElement("li", {
                       className: ""
                     }, "And many more, as I'm sure you know")))));
 

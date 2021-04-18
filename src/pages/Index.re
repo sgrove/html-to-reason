@@ -60,7 +60,7 @@ let default = () => {
           className="bg-white overflow-hidden shadow rounded-lg border-red-400 border-b-2 shadow-lg">
           <div
             className="border-b-2 border-red-400 px-3 py-4 sm:px-6 bg-red-200 text-red-600 flex justify-between">
-            <h1 className="text-lg font-bold"> "Copy Reason"->string </h1>
+            <h1 className="text-lg font-bold"> "Copy Rescript"->string </h1>
             <button onClick={_ => copyOutput()}> Templates.clipboard </button>
           </div>
           <div className="p-1 h-full">

@@ -4,7 +4,7 @@ let header =
     <div className="flex-1 min-w-0">
       <h2
         className="text-2xl font-bold leading-7 text-gray-700 sm:text-3xl sm:leading-9 sm:truncate">
-        "HTML to Reason"->string
+        "HTML to Rescript"->string
       </h2>
     </div>
     <div className="text-sm text-gray-400">
@@ -39,7 +39,7 @@ let footer =
             "Decodes entities in text, then wraps it in quotes and ->string"
             ->string
           </li>
-          <li> "Converts HTML comments to Reason comments"->string </li>
+          <li> "Converts HTML comments to Rescript comments"->string </li>
           <li> "Closes self-closing attributes"->string </li>
           <li>
             "Converts 'style' attribute into "->string
@@ -74,8 +74,8 @@ let footer =
             </a>
           </li>
           <li className="underline">
-            <a href="https://reasonml.github.io/reason-react/" target="_blank">
-              "Reason React"->string
+            <a href="https://rescript-lang.org" target="_blank">
+              "Rescript"->string
             </a>
           </li>
           <li className=""> "And many more, as I'm sure you know"->string </li>
